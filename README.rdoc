@@ -1,16 +1,44 @@
 = cobalt
 
-Description goes here.
+Console for ruby is: Colored, Nesting, Multiple, Smart logging management.
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+== Installation
+
+    $ gem install cobalt
+
+== Usage
+[http://github.com/ktlacaelel/cobalt/wiki/example.png]
+Try it yourself!
+
+    require 'rubygems'
+    require 'cobalt'
+
+    stdout = Logger.new(STDOUT) # log to std out, and but dont prefix with anything!
+    stdout.formatter = proc { |severity, datetime, progname, msg| "#{msg}\n" }
+
+    console = Cobalt::Console.new :loggers => [stdout]
+
+    console.space
+    console.log 'Initializing Console sample..'
+    console.separator '-'
+    console.indent
+    console.notice  'notice'
+    console.warn    'warn'
+    console.error   'error'
+    console.outdent
+
+    console.space
+    console.log 'Remember the color, for a few lines..'
+    console.separator '='
+    console.color(:pink) do
+      console.log 'all this'
+      console.log 'will be'
+      console.log 'colored pink'
+    end
+
+    console.space
+
+
 
 == Copyright
 
