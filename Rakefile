@@ -4,18 +4,18 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "cobalt"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "kazu.dev@gmail.com"
-    gem.homepage = "http://github.com/ktlacaelel/cobalt"
-    gem.authors = ["kazuyoshi tlacaelel"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.name = 'cobalt'
+    gem.summary = %Q{Console for ruby.}
+    gem.description = %Q{Colored, Nesting, Multiple logging management.}
+    gem.email = 'kazu.dev@gmail.com'
+    gem.homepage = 'http://github.com/ktlacaelel/cobalt'
+    gem.authors = ['Fernando Trasviña', 'Pablo Antonio Gonzalez Cervantes', 'kazuyoshi tlacaelel']
+    gem.add_development_dependency 'thoughtbot-shoulda', '>= 0'
+    gem.add_development_dependency 'isna', '>= 0'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+  puts 'Jeweler (or a dependency) not available. Install it with: gem install jeweler'
 end
 
 require 'rake/testtask'
@@ -34,7 +34,7 @@ begin
   end
 rescue LoadError
   task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
+    abort 'RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov'
   end
 end
 
@@ -44,7 +44,7 @@ task :default => :test
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+  version = File.exist?('VERSION') ? File.read('VERSION') : ''
 
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "cobalt #{version}"
