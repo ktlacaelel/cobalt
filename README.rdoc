@@ -40,6 +40,12 @@ Try it yourself!
 
 
 
+== Contributors
+
+* Fernando Trasviña
+* Pablo Antonio Gonzalez Cervantes
+* Kazuyoshi Tlacaelel
+
 == Copyright
 
 Copyright (c) 2012 kazuyoshi tlacaelel. See LICENSE for details.
