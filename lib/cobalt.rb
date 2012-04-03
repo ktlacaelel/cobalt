@@ -43,6 +43,10 @@ module Cobalt
       log(dump)
     end
 
+    def info(*objects)
+      notice(*objects)
+    end
+
     def notice(*objects)
       color(:cyan) { log(*objects) }
     end
