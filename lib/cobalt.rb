@@ -6,13 +6,11 @@ module Cobalt
 
   class Console
 
-    attr_accessor :keep_in_buffer, :separator_length
+    attr_accessor :separator_length
 
     def initialize( options = {} )
       @indent           = 0
       @loggers          = options[:loggers] || [::Logger.new(STDOUT)]
-      @keep_in_buffer   = false
-      @temporal_buffer  = []
       @separator_length = 120
       @color            = :white
     end
@@ -25,30 +23,12 @@ module Cobalt
       @loggers = @loggers - [logger]
     end
 
-    def release_buffer
-      @keep_in_buffer = false
-      @temporal_buffer.each do |line|
-        @loggers.each { |logger| logger.info(line) }
-      end
-      @temporal_buffer = []
-      nil
-    end
-
     def log(*objects)
       objects.each do |object|
-
         the_string = object.to_s
         the_string = the_string.to_ansi.send(@color).to_s
         the_string = the_string.gsub(/^/, ' ' * @indent)
-
-        @loggers.each do |logger|
-          if @keep_in_buffer
-            @temporal_buffer << the_string
-            next
-          end
-          logger.info the_string
-        end
-
+        @loggers.each { |logger| logger.info(the_string) }
       end
       self
     end
