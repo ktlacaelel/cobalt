@@ -13,6 +13,7 @@ module Cobalt
       @loggers          = options[:loggers] || [::Logger.new(STDOUT)]
       @separator_length = 120
       @color            = :white
+      @level            = :info
     end
 
     def add_logger logger
@@ -28,7 +29,7 @@ module Cobalt
         the_string = object.to_s
         the_string = the_string.to_ansi.send(@color).to_s
         the_string = the_string.gsub(/^/, ' ' * @indent)
-        @loggers.each { |logger| logger.info(the_string) }
+        @loggers.each { |logger| logger.send(@level, the_string) }
       end
       self
     end
@@ -48,15 +49,20 @@ module Cobalt
     end
 
     def notice(*objects)
+      @level = :info
       color(:cyan) { log(*objects) }
     end
 
     def warn(*objects)
+      @level = :warn
       color(:yellow) { log(*objects) }
+      @level = :info
     end
 
     def error(*objects)
+      @level = :error
       color(:red) { log(*objects) }
+      @level = :info
     end
 
     def separator(type = '-')
