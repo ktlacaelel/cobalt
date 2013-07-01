@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{cobalt}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Fernando Trasvi\303\261a", "Pablo Antonio Gonzalez Cervantes", "kazuyoshi tlacaelel"]
-  s.date = %q{2012-04-03}
+  s.date = %q{2013-07-01}
   s.description = %q{Colored, Nesting, Multiple logging management.}
   s.email = %q{kazu.dev@gmail.com}
   s.extra_rdoc_files = [
