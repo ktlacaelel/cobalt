@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Cobalt : Colored, Nesting, Multiple logging management." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Cobalt</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ktlacaelel/cobalt">View on GitHub</a>
+
+          <h1 id="project_title">Cobalt</h1>
+          <h2 id="project_tagline">Colored, Nesting, Multiple logging management.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ktlacaelel/cobalt/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ktlacaelel/cobalt/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>= cobalt</p>
+
+<p>Console for ruby is: Colored, Nesting, Multiple, Smart logging management.</p>
+
+<p>== Installation</p>
+
+<pre><code>$ gem install cobalt
+</code></pre>
+
+<p>== Usage
+[<a href="http://github.com/ktlacaelel/cobalt/wiki/example.png">http://github.com/ktlacaelel/cobalt/wiki/example.png</a>]
+Try it yourself!</p>
+
+<pre><code>require 'rubygems'
+require 'cobalt'
+
+stdout = Logger.new(STDOUT) # log to std out, and but dont prefix with anything!
+stdout.formatter = proc { |severity, datetime, progname, msg| "#{msg}\n" }
+
+console = Cobalt::Console.new :loggers =&gt; [stdout]
+
+console.space
+console.log 'Initializing Console sample..'
+console.separator '-'
+console.indent
+console.notice  'notice'
+console.warn    'warn'
+console.error   'error'
+console.outdent
+
+console.space
+console.log 'Remember the color, for a few lines..'
+console.separator '='
+console.color(:pink) do
+  console.log 'all this'
+  console.log 'will be'
+  console.log 'colored pink'
+end
+
+console.space
+</code></pre>
+
+<p>== Contributors</p>
+
+<ul>
+<li>Fernando Trasviña</li>
+<li>Pablo Antonio Gonzalez Cervantes</li>
+<li>Kazuyoshi Tlacaelel</li>
+</ul><p>== Copyright</p>
+
+<p>Copyright (c) 2012 kazuyoshi tlacaelel. See LICENSE for details.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Cobalt maintained by <a href="https://github.com/ktlacaelel">ktlacaelel</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
